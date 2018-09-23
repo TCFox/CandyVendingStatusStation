@@ -90,21 +90,21 @@ void checkToActivateBarrel() {
   if (lock_state == 0 || (lock_state == 1 && status_state == 1))
   {
     int current_sensor_state = digitalRead(SENSOR_PIN);
-    if (current_sensor_state == HIGH && last_known_sensor_state == LOW)
-    {
-      last_known_sensor_state = HIGH;
-      
-      activateBarrel();
-    }
     if (current_sensor_state == LOW && last_known_sensor_state == HIGH)
     {
       last_known_sensor_state = LOW;
+      
+      activateBarrel();
+    }
+    if (current_sensor_state == HIGH && last_known_sensor_state == LOW)
+    {
+      last_known_sensor_state = HIGH;
     }
   }
   else
   {
     // Reset barrel state when locked
-    last_known_sensor_state = LOW;
+    last_known_sensor_state = HIGH;
   }
 }
 
