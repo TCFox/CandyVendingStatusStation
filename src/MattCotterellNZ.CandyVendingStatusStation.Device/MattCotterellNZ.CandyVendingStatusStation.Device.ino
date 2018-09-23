@@ -17,7 +17,7 @@ CRGB leds[NUM_LEDS];
 #define SENSOR_PIN 2
 
 // Barrel Constants
-#define BARREL_PIN 13
+#define BARREL_PIN 12
 
 // DEPRECATED
 const int max_brightness = 1;
